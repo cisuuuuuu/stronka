@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.envelope-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.envelope {
+    position: relative;
+    width: 300px; /* Większa koperta */
+    height: 180px; /* Większa koperta */
+    background-color: #d4af37;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flap {
+    position: absolute;
+    top: -90px; /* Dostosowane do większej koperty */
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent; /* Dostosowane do większej koperty */
+    border-right: 150px solid transparent; /* Dostosowane do większej koperty */
+    border-bottom: 90px solid #d4af37; /* Dostosowane do większej koperty */
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+
+.body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #d4af37;
+    border-radius: 0 0 15px 15px;
+}
+
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 270px; /* Większa kartka */
+    height: 150px; /* Większa kartka */
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease, top 0.5s ease;
+}
+
+.letter p {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    font-size: 18px; /* Większa czcionka */
+}
+
+.flower {
+    position: absolute;
+    width: 100px; /* Rozmiar kwiatka */
+    height: auto; /* Zachowaj proporcje */
+    opacity: 0; /* Kwiaty są niewidoczne na początku */
+    transition: opacity 0.5s ease 0.5s; /* Pojawiają się z opóźnieniem */
+}
+
+/* Lewy kwiatek */
+.left-flower {
+    top: 50%; /* Pozycja na środku w pionie */
+    left: 50px; /* Odległość od koperty */
+    transform: translateY(-50%); /* Wyśrodkowanie w pionie */
+}
+
+/* Prawy kwiatek */
+.right-flower {
+    top: 50%; /* Pozycja na środku w pionie */
+    right: 50px; /* Odległość od koperty */
+    transform: translateY(-50%); /* Wyśrodkowanie w pionie */
+}
+
+@keyframes bloom {
+    0%, 100% {
+        transform: scale(0.9) translateY(-50%);
+    }
+    50% {
+        transform: scale(1.1) translateY(-50%);
+    }
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    top: -150px; /* Dostosowane do większej koperty */
+    opacity: 1;
+}
+
+/* Klasa dodawana przez JavaScript */
+.flower.show {
+    opacity: 1; /* Kwiaty pojawiają się */
+    animation: bloom 2s ease-in-out infinite; /* Animacja kwitnienia */
+}

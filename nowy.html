@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animowana Koperta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="envelope-container">
+        <div class="envelope" onclick="openEnvelope()">
+            <div class="flap"></div>
+            <div class="body"></div>
+            <div class="letter">
+                <p>Witaj!</p>
+                <p>To jest wiadomość w kopercie.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kwiatki jako obrazy -->
+    <img src="flower.png" alt="Kwiatek" class="flower left-flower">
+    <img src="flower.png" alt="Kwiatek" class="flower right-flower">
+
+    <script src="script.js"></script>
+</body>
+</html>
